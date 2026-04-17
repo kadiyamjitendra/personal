@@ -1,0 +1,764 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bofa-red:#E31837;
+--bofa-dark:#012169;
+--bofa-navy:#001F5B;
+--bofa-gold:#C8960C;
+--bofa-light:#F5F7FA;
+--bofa-mid:#E8EDF5;
+--text-main:#0A0E1A;
+--text-muted:#4A5568;
+--white:#fff;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bofa-light);color:var(--text-main);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--bofa-navy);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;height:64px;
+  border-bottom:3px solid var(--bofa-red);
+}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon{width:36px;height:36px;background:var(--bofa-red);border-radius:4px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon svg{width:22px;height:22px;fill:white}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:white;font-weight:700;letter-spacing:0.5px}
+.nav-brand span{color:var(--bofa-red)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:white}
+.nav-cta{background:var(--bofa-red);color:white;border:none;padding:8px 20px;border-radius:4px;font-size:0.82rem;font-weight:600;cursor:pointer;letter-spacing:0.5px;transition:background .2s}
+.nav-cta:hover{background:#c01430}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg, var(--bofa-navy) 0%, #012169 55%, #021A4F 100%);
+  padding:5rem 2.5rem 4rem;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:0;right:0;width:45%;height:100%;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E31837' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='%23E31837' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='400' height='400'/%3E%3Ccircle cx='300' cy='80' r='120' fill='none' stroke='%23E31837' stroke-width='1' opacity='0.15'/%3E%3Ccircle cx='300' cy='80' r='80' fill='none' stroke='%23E31837' stroke-width='1' opacity='0.1'/%3E%3Ccircle cx='300' cy='80' r='40' fill='none' stroke='%23E31837' stroke-width='1' opacity='0.08'/%3E%3Ccircle cx='80' cy='320' r='60' fill='none' stroke='%23C8960C' stroke-width='0.5' opacity='0.12'/%3E%3C/svg%3E") no-repeat center/cover;
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;max-width:1100px;margin:0 auto}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(232,29,55,0.15);border:1px solid rgba(232,29,55,0.4);
+  padding:6px 16px;border-radius:20px;margin-bottom:1.5rem;
+}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--bofa-red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.2)}}
+.hero-badge span{font-size:0.78rem;color:rgba(255,255,255,0.85);font-weight:500;letter-spacing:0.5px}
+.hero-name{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;color:white;line-height:1.1;margin-bottom:0.5rem}
+.hero-name span{color:var(--bofa-red)}
+.hero-title{font-size:1rem;color:rgba(255,255,255,0.6);margin-bottom:1.5rem;font-weight:400;letter-spacing:0.3px}
+.hero-desc{font-size:0.95rem;color:rgba(255,255,255,0.78);line-height:1.7;max-width:520px;margin-bottom:2rem}
+.hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem}
+.hero-stat-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:white}
+.hero-stat-val span{color:var(--bofa-red)}
+.hero-stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.8px}
+.hero-btns{display:flex;gap:1rem}
+.btn-primary{background:var(--bofa-red);color:white;border:none;padding:12px 28px;border-radius:4px;font-size:0.88rem;font-weight:600;cursor:pointer;letter-spacing:0.3px;transition:all .2s}
+.btn-primary:hover{background:#c01430;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.3);padding:12px 28px;border-radius:4px;font-size:0.88rem;font-weight:500;cursor:pointer;letter-spacing:0.3px;transition:all .2s}
+.btn-outline:hover{border-color:white;background:rgba(255,255,255,0.05)}
+.hero-card{
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+  border-radius:12px;padding:2rem;min-width:220px;backdrop-filter:blur(10px);
+}
+.hero-avatar{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,var(--bofa-red),#8B0000);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:white;
+  margin:0 auto 1rem;border:3px solid rgba(232,29,55,0.4);
+}
+.hero-card-name{font-size:0.9rem;font-weight:600;color:white;text-align:center;margin-bottom:4px}
+.hero-card-role{font-size:0.72rem;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:1.2rem}
+.hero-card-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.tag{font-size:0.65rem;padding:4px 10px;border-radius:20px;font-weight:500;letter-spacing:0.3px}
+.tag-red{background:rgba(232,29,55,0.2);color:#F87171;border:1px solid rgba(232,29,55,0.3)}
+.tag-blue{background:rgba(1,33,105,0.4);color:#93B4FF;border:1px solid rgba(1,33,105,0.6)}
+.tag-gold{background:rgba(200,150,12,0.15);color:#F6C94E;border:1px solid rgba(200,150,12,0.3)}
+
+/* TICKER */
+.ticker-wrap{background:var(--bofa-red);padding:10px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;gap:3rem;animation:ticker 25s linear infinite}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-size:0.75rem;color:white;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.ticker-sep{color:rgba(255,255,255,0.5)}
+
+/* SECTION COMMONS */
+.section{padding:4rem 2.5rem;max-width:1100px;margin:0 auto}
+.sec-label{font-size:0.72rem;color:var(--bofa-red);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.6rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--bofa-navy);margin-bottom:0.5rem}
+.sec-sub{font-size:0.92rem;color:var(--text-muted);margin-bottom:2.5rem;line-height:1.6}
+.divider{width:48px;height:3px;background:var(--bofa-red);margin-bottom:2rem}
+
+/* SKILLS */
+.skills-section{background:white;border-top:1px solid #E2E8F0}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}
+.skill-card{
+  background:var(--bofa-light);border:1px solid #E2E8F0;border-radius:10px;
+  padding:1.25rem 1rem;text-align:center;cursor:default;transition:all .2s;
+  position:relative;overflow:hidden;
+}
+.skill-card:hover{border-color:var(--bofa-red);transform:translateY(-3px);box-shadow:0 8px 24px rgba(227,24,55,0.1)}
+.skill-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--bofa-red);transform:scaleX(0);transition:transform .2s}
+.skill-card:hover::before{transform:scaleX(1)}
+.skill-icon{font-size:1.6rem;margin-bottom:0.5rem}
+.skill-name{font-size:0.78rem;font-weight:600;color:var(--bofa-navy);line-height:1.3}
+.skill-cat{font-size:0.65rem;color:var(--text-muted);margin-top:3px;text-transform:uppercase;letter-spacing:0.5px}
+
+/* EXPERIENCE */
+.exp-section{background:var(--bofa-light)}
+.exp-timeline{position:relative}
+.exp-timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--bofa-red),var(--bofa-navy))}
+.exp-item{display:flex;gap:2rem;margin-bottom:2.5rem;position:relative;animation:fadeUp .5s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.exp-dot{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--bofa-navy);border:3px solid var(--bofa-red);
+  flex-shrink:0;z-index:1;display:flex;align-items:center;justify-content:center;
+  font-size:0.65rem;font-weight:700;color:white;
+}
+.exp-body{
+  background:white;border:1px solid #E2E8F0;border-radius:12px;
+  padding:1.5rem;flex:1;transition:box-shadow .2s;
+}
+.exp-body:hover{box-shadow:0 4px 20px rgba(1,33,105,0.08)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem}
+.exp-company{font-weight:700;font-size:1rem;color:var(--bofa-navy)}
+.exp-period{font-size:0.75rem;color:var(--bofa-red);font-weight:600;background:rgba(232,29,55,0.08);padding:4px 10px;border-radius:20px}
+.exp-role{font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;font-weight:500}
+.exp-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
+.badge{font-size:0.65rem;padding:3px 9px;border-radius:4px;font-weight:600;letter-spacing:0.3px}
+.badge-navy{background:rgba(1,33,105,0.08);color:var(--bofa-navy)}
+.badge-red{background:rgba(232,29,55,0.08);color:var(--bofa-red)}
+.exp-metrics{display:flex;gap:1.5rem;flex-wrap:wrap;border-top:1px solid #F0F0F0;padding-top:1rem;margin-top:0.5rem}
+.exp-metric-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--bofa-navy)}
+.exp-metric-lbl{font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px}
+
+/* PROJECTS */
+.projects-section{background:white}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.proj-card{
+  border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;
+  transition:all .25s;cursor:pointer;
+}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(1,33,105,0.12);border-color:var(--bofa-red)}
+.proj-visual{
+  height:140px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.proj-visual.arch{background:linear-gradient(135deg,#012169,#021A4F)}
+.proj-visual.ai{background:linear-gradient(135deg,#1a0533,#2d0a5e)}
+.proj-visual.ml{background:linear-gradient(135deg,#0f2027,#203a43)}
+.proj-visual.rl{background:linear-gradient(135deg,#1a1a2e,#16213e)}
+.proj-visual-svg{width:100%;height:100%}
+.proj-body{padding:1.25rem}
+.proj-title{font-weight:700;font-size:0.95rem;color:var(--bofa-navy);margin-bottom:0.4rem}
+.proj-desc{font-size:0.8rem;color:var(--text-muted);line-height:1.6;margin-bottom:1rem}
+.proj-tech{display:flex;flex-wrap:wrap;gap:5px}
+.proj-tech span{font-size:0.62rem;background:#F0F4FF;color:var(--bofa-navy);padding:3px 8px;border-radius:4px;font-weight:600}
+
+/* CERTS */
+.certs-section{background:var(--bofa-navy);padding:3rem 2.5rem}
+.certs-inner{max-width:1100px;margin:0 auto}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.cert-card{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;padding:1.25rem;transition:all .2s;
+}
+.cert-card:hover{background:rgba(255,255,255,0.1);border-color:var(--bofa-red)}
+.cert-icon{font-size:1.4rem;margin-bottom:0.6rem}
+.cert-name{font-size:0.8rem;font-weight:600;color:white;line-height:1.4;margin-bottom:0.3rem}
+.cert-org{font-size:0.68rem;color:rgba(255,255,255,0.5)}
+
+/* CONTACT */
+.contact-section{background:white;border-top:1px solid #E2E8F0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact-item{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid #F0F0F0}
+.contact-ico{
+  width:44px;height:44px;border-radius:8px;
+  background:rgba(232,29,55,0.08);border:1px solid rgba(232,29,55,0.15);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:1rem;
+}
+.contact-lbl{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px}
+.contact-val{font-size:0.88rem;font-weight:600;color:var(--bofa-navy)}
+.quick-stats{background:var(--bofa-navy);border-radius:12px;padding:2rem}
+.qstat-row{display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+.qstat-row:last-child{border-bottom:none}
+.qstat-key{font-size:0.78rem;color:rgba(255,255,255,0.55)}
+.qstat-val{font-size:0.82rem;font-weight:600;color:white}
+
+/* FOOTER */
+footer{
+  background:linear-gradient(to right,var(--bofa-navy),#021A4F);
+  padding:2rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:3px solid var(--bofa-red);
+}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1rem;color:white;font-weight:700}
+.footer-brand span{color:var(--bofa-red)}
+.footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.4)}
+
+/* Active tab highlight */
+.nav-links a.active{color:white;border-bottom:2px solid var(--bofa-red)}
+</style>
+
+<h2 class="sr-only">Jitendra Prasad Kadiyam — AI Data Engineer Portfolio</h2>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zm0 7h18v4H3zm0 7h18v4H3z"/></svg>
+    </div>
+    <div class="nav-brand">KADIYAM<span>.</span></div>
+  </div>
+  <div class="nav-links">
+    <a onclick="scroll2('skills')">Skills</a>
+    <a onclick="scroll2('experience')">Experience</a>
+    <a onclick="scroll2('projects')">Projects</a>
+    <a onclick="scroll2('certs')">Certifications</a>
+    <a onclick="scroll2('contact')">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="scroll2('contact')">Hire Me</button>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">SAP Datasphere</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">Databricks Delta Lake</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">AWS SageMaker</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">Apache Kafka</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">LangChain + RAG</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">SAP Analytics Cloud</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">Python & PySpark</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">dbt + Airflow</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">Power BI & Tableau</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">MLflow + MLOps</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">SAP Datasphere</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">Databricks Delta Lake</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">AWS SageMaker</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">Apache Kafka</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">LangChain + RAG</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">SAP Analytics Cloud</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">Python & PySpark</span><span class="ticker-sep">●</span>
+    <span class="ticker-item">dbt + Airflow</span><span class="ticker-sep">●</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge"><div class="hero-badge-dot"></div><span>Available for new opportunities</span></div>
+      <h1 class="hero-name">Jitendra<br><span>Kadiyam</span></h1>
+      <p class="hero-title">AI Data Engineer · SAP Datasphere · Databricks · AWS · MLOps</p>
+      <p class="hero-desc">4 years building cloud data platforms, AI pipelines, and analytics solutions for Fortune 500 clients. Turning raw data into measurable business outcomes — from sub-5-minute CDC pipelines to 50,000+ monthly AI document workflows.</p>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-val">4<span>+</span></div>
+          <div class="hero-stat-lbl">Years Experience</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">50<span>K+</span></div>
+          <div class="hero-stat-lbl">Monthly AI Docs</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">92<span>%</span></div>
+          <div class="hero-stat-lbl">ML Extraction Acc.</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">3.76</div>
+          <div class="hero-stat-lbl">MS GPA / UNH</div>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="scroll2('contact')">Get In Touch</button>
+        <button class="btn-outline" onclick="scroll2('projects')">View Projects</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-avatar">JK</div>
+      <div class="hero-card-name">Jitendra Prasad Kadiyam</div>
+      <div class="hero-card-role">AI Data Engineer | Fort Smith, AR</div>
+      <div class="hero-card-tags">
+        <span class="tag tag-red">SAP Certified</span>
+        <span class="tag tag-blue">AWS DEA-C01</span>
+        <span class="tag tag-gold">Databricks Certified</span>
+        <span class="tag tag-red">MS Data Science</span>
+        <span class="tag tag-blue">MLflow / MLOps</span>
+        <span class="tag tag-gold">LangChain / RAG</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-section" id="skills">
+<div class="section" style="padding-top:3rem;padding-bottom:3rem">
+  <div class="sec-label">Expertise</div>
+  <h2 class="sec-title">Core Technology Stack</h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-icon">🏗️</div><div class="skill-name">SAP Datasphere</div><div class="skill-cat">SAP Platform</div></div>
+    <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">SAP Analytics Cloud</div><div class="skill-cat">BI / Dashboards</div></div>
+    <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">Databricks Delta Lake</div><div class="skill-cat">Data Lakehouse</div></div>
+    <div class="skill-card"><div class="skill-icon">☁️</div><div class="skill-name">AWS Glue / S3 / Redshift</div><div class="skill-cat">Cloud Data Eng.</div></div>
+    <div class="skill-card"><div class="skill-icon">🐍</div><div class="skill-name">Python / PySpark</div><div class="skill-cat">Data Engineering</div></div>
+    <div class="skill-card"><div class="skill-icon">📡</div><div class="skill-name">Apache Kafka + CDC</div><div class="skill-cat">Streaming</div></div>
+    <div class="skill-card"><div class="skill-icon">🔧</div><div class="skill-name">dbt + Apache Airflow</div><div class="skill-cat">Orchestration</div></div>
+    <div class="skill-card"><div class="skill-icon">📈</div><div class="skill-name">Power BI / Tableau</div><div class="skill-cat">Visualization</div></div>
+    <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">LangChain / RAG / LLMs</div><div class="skill-cat">Generative AI</div></div>
+    <div class="skill-card"><div class="skill-icon">🧠</div><div class="skill-name">AWS SageMaker</div><div class="skill-cat">ML / MLOps</div></div>
+    <div class="skill-card"><div class="skill-icon">📋</div><div class="skill-name">MLflow / MLOps</div><div class="skill-cat">Model Lifecycle</div></div>
+    <div class="skill-card"><div class="skill-icon">🔍</div><div class="skill-name">BERT / XGBoost</div><div class="skill-cat">ML Models</div></div>
+  </div>
+</div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="exp-section" id="experience">
+<div class="section">
+  <div class="sec-label">Career History</div>
+  <h2 class="sec-title">Professional Experience</h2>
+  <div class="divider"></div>
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-dot">W</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Walmart · Bentonville, AR</div>
+            <div class="exp-role">Supercenter Store Manager</div>
+          </div>
+          <div class="exp-period">Jun 2025 – Present</div>
+        </div>
+        <div class="exp-badges">
+          <span class="badge badge-navy">Power BI Dashboards</span>
+          <span class="badge badge-navy">SQL Analytics</span>
+          <span class="badge badge-navy">P&L Ownership</span>
+          <span class="badge badge-red">400+ Associates</span>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.7">
+          Leading full operations of a high-volume Supercenter — 12 departments, 40 department managers, data-driven inventory and staffing decisions via Power BI + SQL dashboards.
+        </div>
+        <div class="exp-metrics">
+          <div><div class="exp-metric-val">400+</div><div class="exp-metric-lbl">Associates</div></div>
+          <div><div class="exp-metric-val">12</div><div class="exp-metric-lbl">Departments</div></div>
+          <div><div class="exp-metric-val">60+</div><div class="exp-metric-lbl">Managers</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-dot">GI</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Global IT Solutions · Texas (Remote)</div>
+            <div class="exp-role">AI Data Engineer</div>
+          </div>
+          <div class="exp-period">Aug 2023 – Jun 2025</div>
+        </div>
+        <div class="exp-badges">
+          <span class="badge badge-red">SAP Datasphere</span>
+          <span class="badge badge-red">Databricks Lakehouse</span>
+          <span class="badge badge-navy">Apache Kafka CDC</span>
+          <span class="badge badge-navy">AWS SageMaker</span>
+          <span class="badge badge-red">BERT NLP</span>
+          <span class="badge badge-navy">SAC Dashboards</span>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.7">
+          Built unified AI data engineering platform for Fortune 500 manufacturing client — real-time SAP CDC, governed semantic layer, AI-powered invoice processing, and ML-driven bottleneck detection.
+        </div>
+        <div class="exp-metrics">
+          <div><div class="exp-metric-val">50K+</div><div class="exp-metric-lbl">AI Docs/Month</div></div>
+          <div><div class="exp-metric-val">92%</div><div class="exp-metric-lbl">NLP Accuracy</div></div>
+          <div><div class="exp-metric-val">60%</div><div class="exp-metric-lbl">Analyst Req. Down</div></div>
+          <div><div class="exp-metric-val">80%</div><div class="exp-metric-lbl">Manual Effort Saved</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-dot">CG</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Cognizant Technology Solutions · India</div>
+            <div class="exp-role">Data Engineer</div>
+          </div>
+          <div class="exp-period">Jun 2022 – Jul 2023</div>
+        </div>
+        <div class="exp-badges">
+          <span class="badge badge-navy">AWS Glue</span>
+          <span class="badge badge-navy">Amazon Redshift</span>
+          <span class="badge badge-red">dbt + Airflow</span>
+          <span class="badge badge-red">Great Expectations</span>
+          <span class="badge badge-navy">XGBoost Forecasting</span>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.7">
+          Migrated 8 on-premise source systems to AWS cloud data platform for FMCG retailer. Built medallion lakehouse, dbt transformation layer, and ML models for demand forecasting and customer segmentation.
+        </div>
+        <div class="exp-metrics">
+          <div><div class="exp-metric-val">75%</div><div class="exp-metric-lbl">Faster Pipelines</div></div>
+          <div><div class="exp-metric-val">&lt;9%</div><div class="exp-metric-lbl">MAPE Forecast</div></div>
+          <div><div class="exp-metric-val">99.8%</div><div class="exp-metric-lbl">Uptime</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-dot">FK</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Flipkart (Walmart Subsidiary) · Bangalore</div>
+            <div class="exp-role">Data Analyst — Intern</div>
+          </div>
+          <div class="exp-period">May 2021 – May 2022</div>
+        </div>
+        <div class="exp-badges">
+          <span class="badge badge-red">Qlik Sense</span>
+          <span class="badge badge-red">Power BI</span>
+          <span class="badge badge-navy">SQL Star Schema</span>
+          <span class="badge badge-navy">Airflow ETL</span>
+          <span class="badge badge-red">Scikit-learn</span>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.7">
+          Selected from 20,000+ applicants as 1 of 130 interns. Built warehouse operations analytics platform adopted across 3 fulfillment centers. Improved picker productivity 15%, dock turnaround 18%.
+        </div>
+        <div class="exp-metrics">
+          <div><div class="exp-metric-val">15%</div><div class="exp-metric-lbl">IPP Improvement</div></div>
+          <div><div class="exp-metric-val">8hrs</div><div class="exp-metric-lbl">Weekly Time Saved</div></div>
+          <div><div class="exp-metric-val">20%</div><div class="exp-metric-lbl">Space Saved</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- PROJECTS -->
+<div class="projects-section" id="projects">
+<div class="section">
+  <div class="sec-label">Portfolio</div>
+  <h2 class="sec-title">Featured Projects</h2>
+  <div class="divider"></div>
+  <div class="proj-grid">
+
+    <div class="proj-card">
+      <div class="proj-visual arch">
+        <svg class="proj-visual-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="50" width="55" height="40" rx="5" fill="none" stroke="#E31837" stroke-width="1.5" opacity="0.8"/>
+          <text x="37" y="74" fill="white" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">S/4HANA</text>
+          <line x1="65" y1="70" x2="90" y2="70" stroke="#E31837" stroke-width="1.5" marker-end="url(#arr)"/>
+          <rect x="90" y="50" width="50" height="40" rx="5" fill="none" stroke="#4A90D9" stroke-width="1.5" opacity="0.8"/>
+          <text x="115" y="74" fill="white" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">Kafka CDC</text>
+          <line x1="140" y1="70" x2="165" y2="70" stroke="#4A90D9" stroke-width="1.5" marker-end="url(#arr)"/>
+          <rect x="165" y="50" width="50" height="40" rx="5" fill="none" stroke="#C8960C" stroke-width="1.5" opacity="0.8"/>
+          <text x="190" y="70" fill="white" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">Databricks</text>
+          <text x="190" y="80" fill="white" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">Delta Lake</text>
+          <line x1="215" y1="70" x2="240" y2="70" stroke="#C8960C" stroke-width="1.5" marker-end="url(#arr)"/>
+          <rect x="240" y="50" width="50" height="40" rx="5" fill="none" stroke="#50C878" stroke-width="1.5" opacity="0.8"/>
+          <text x="265" y="70" fill="white" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">SAC +</text>
+          <text x="265" y="80" fill="white" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">Power BI</text>
+          <text x="150" y="20" fill="white" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600" opacity="0.8">Unified AI Data Platform</text>
+          <text x="150" y="32" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">200K+ daily events · sub-5min latency</text>
+          <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10Z" fill="rgba(255,255,255,0.6)"/></marker></defs>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Real-Time AI Data Platform (Fortune 500)</div>
+        <div class="proj-desc">Unified platform — SAP Datasphere semantic layer, Databricks Lakehouse, AI invoice processing (50K+/mo), XGBoost bottleneck classifier (AUC 0.91).</div>
+        <div class="proj-tech">
+          <span>SAP Datasphere</span><span>Debezium CDC</span><span>Kafka</span><span>Databricks</span><span>BERT</span><span>SageMaker</span><span>dbt</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-visual ai">
+        <svg class="proj-visual-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+          <rect x="15" y="40" width="60" height="30" rx="4" fill="rgba(200,150,12,0.25)" stroke="#C8960C" stroke-width="1"/>
+          <text x="45" y="59" fill="#F6C94E" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">S3 PDF Landing</text>
+          <rect x="95" y="40" width="55" height="30" rx="4" fill="rgba(255,100,50,0.2)" stroke="#E31837" stroke-width="1"/>
+          <text x="122" y="55" fill="white" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">AWS Textract</text>
+          <text x="122" y="63" fill="rgba(255,255,255,0.6)" font-size="5.5" text-anchor="middle" font-family="DM Sans,sans-serif">OCR Engine</text>
+          <rect x="170" y="40" width="50" height="30" rx="4" fill="rgba(100,80,200,0.25)" stroke="#8B5CF6" stroke-width="1"/>
+          <text x="195" y="55" fill="#C4B5FD" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">BERT NLP</text>
+          <text x="195" y="63" fill="rgba(196,181,253,0.6)" font-size="5" text-anchor="middle" font-family="DM Sans,sans-serif">Fine-tuned</text>
+          <rect x="240" y="40" width="48" height="30" rx="4" fill="rgba(80,200,120,0.2)" stroke="#50C878" stroke-width="1"/>
+          <text x="264" y="55" fill="#86EFAC" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">Redshift</text>
+          <text x="264" y="63" fill="rgba(134,239,172,0.6)" font-size="5" text-anchor="middle" font-family="DM Sans,sans-serif">+ dbt</text>
+          <line x1="75" y1="55" x2="93" y2="55" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="150" y1="55" x2="168" y2="55" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="220" y1="55" x2="238" y2="55" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="150" y="18" fill="white" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600" opacity="0.9">AI Document Processing Pipeline</text>
+          <rect x="80" y="95" width="140" height="22" rx="4" fill="rgba(232,29,55,0.15)" stroke="rgba(232,29,55,0.4)" stroke-width="0.5"/>
+          <text x="150" y="108" fill="#F87171" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">92% accuracy · &lt;4 min · 80% manual effort saved</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">AI Invoice Automation Pipeline</div>
+        <div class="proj-desc">End-to-end AI pipeline: Textract OCR → BERT NLP extraction → Redshift. Processes 50K+ invoices/month in under 4 minutes vs. 4–6 hours. 92% accuracy, &lt;1% error rate.</div>
+        <div class="proj-tech">
+          <span>AWS Textract</span><span>BERT NLP</span><span>SageMaker</span><span>LangChain</span><span>Pinecone</span><span>dbt</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-visual ml">
+        <svg class="proj-visual-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="70" cy="70" r="35" fill="none" stroke="#4A90D9" stroke-width="1" opacity="0.4"/>
+          <circle cx="150" cy="70" r="35" fill="none" stroke="#E31837" stroke-width="1" opacity="0.4"/>
+          <circle cx="230" cy="70" r="35" fill="none" stroke="#C8960C" stroke-width="1" opacity="0.4"/>
+          <text x="70" y="65" fill="white" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">XGBoost</text>
+          <text x="70" y="76" fill="rgba(255,255,255,0.6)" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">AUC 0.91</text>
+          <text x="150" y="65" fill="white" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">SageMaker</text>
+          <text x="150" y="76" fill="rgba(255,255,255,0.6)" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">Pipelines</text>
+          <text x="230" y="65" fill="white" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">MLflow</text>
+          <text x="230" y="76" fill="rgba(255,255,255,0.6)" font-size="6" text-anchor="middle" font-family="DM Sans,sans-serif">Registry</text>
+          <text x="150" y="18" fill="white" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600" opacity="0.9">ML Bottleneck Detection</text>
+          <text x="150" y="30" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="middle">80+ features · Workflow errors –25%</text>
+          <text x="150" y="120" fill="rgba(255,255,255,0.45)" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">Evidently AI drift · CloudWatch alerting</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">XGBoost MLOps — Bottleneck Classifier</div>
+        <div class="proj-desc">Trained on 80+ SAP process log features (AUC 0.91). SageMaker Pipelines for auto-retraining, MLflow registry, Evidently AI drift monitoring. Reduced workflow errors 25%.</div>
+        <div class="proj-tech">
+          <span>XGBoost</span><span>SageMaker</span><span>MLflow</span><span>Evidently AI</span><span>CloudWatch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-visual rl">
+        <svg class="proj-visual-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="260" height="100" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+          <rect x="40" y="40" width="80" height="60" rx="4" fill="rgba(80,200,120,0.12)" stroke="rgba(80,200,120,0.35)" stroke-width="1"/>
+          <text x="80" y="68" fill="#86EFAC" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">Snake Game</text>
+          <text x="80" y="78" fill="rgba(134,239,172,0.6)" font-size="5.5" text-anchor="middle">Pygame Env.</text>
+          <rect x="145" y="40" width="80" height="60" rx="4" fill="rgba(100,80,200,0.15)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+          <text x="185" y="64" fill="#C4B5FD" font-size="7" text-anchor="middle" font-family="DM Sans,sans-serif">Deep Q-Network</text>
+          <text x="185" y="74" fill="rgba(196,181,253,0.6)" font-size="5.5" text-anchor="middle">3-layer PyTorch NN</text>
+          <text x="185" y="83" fill="rgba(196,181,253,0.5)" font-size="5" text-anchor="middle">ε-greedy · Replay</text>
+          <line x1="120" y1="70" x2="143" y2="70" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-end="url(#ar2)" stroke-dasharray="3,2"/>
+          <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10Z" fill="rgba(255,255,255,0.4)"/></marker></defs>
+          <text x="150" y="125" fill="rgba(255,255,255,0.4)" font-size="6.5" text-anchor="middle" font-family="DM Sans,sans-serif">Avg score: 2.1 (random) → 28.7 (trained) in 500 episodes</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Snake Game — Deep Q-Learning RL Agent</div>
+        <div class="proj-desc">DQN agent with PyTorch, 11-feature state space, experience replay. Achieved convergent optimal policy within 500 episodes — avg score 2.1 → 28.7.</div>
+        <div class="proj-tech">
+          <span>PyTorch</span><span>Deep Q-Learning</span><span>Pygame</span><span>RL</span><span>Epsilon-Greedy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-visual arch" style="background:linear-gradient(135deg,#0a2342,#163870)">
+        <svg class="proj-visual-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+          <text x="150" y="22" fill="white" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600" opacity="0.9">AWS Cloud Data Platform Migration</text>
+          <rect x="15" y="40" width="50" height="28" rx="4" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+          <text x="40" y="57" fill="rgba(255,255,255,0.75)" font-size="6" text-anchor="middle">8 On-Prem Sources</text>
+          <rect x="80" y="40" width="42" height="28" rx="4" fill="rgba(255,200,50,0.15)" stroke="rgba(255,200,50,0.4)" stroke-width="0.8"/>
+          <text x="101" y="57" fill="#FCD34D" font-size="6" text-anchor="middle">S3 Bronze</text>
+          <rect x="137" y="40" width="42" height="28" rx="4" fill="rgba(255,140,0,0.15)" stroke="rgba(255,140,0,0.4)" stroke-width="0.8"/>
+          <text x="158" y="57" fill="#FCA5A5" font-size="6" text-anchor="middle">Glue PySpark</text>
+          <rect x="194" y="40" width="42" height="28" rx="4" fill="rgba(50,200,150,0.15)" stroke="rgba(50,200,150,0.4)" stroke-width="0.8"/>
+          <text x="215" y="57" fill="#6EE7B7" font-size="6" text-anchor="middle">Redshift RA3</text>
+          <rect x="251" y="40" width="38" height="28" rx="4" fill="rgba(100,100,255,0.15)" stroke="rgba(150,150,255,0.4)" stroke-width="0.8"/>
+          <text x="270" y="57" fill="#C4B5FD" font-size="6" text-anchor="middle">Power BI</text>
+          <line x1="65" y1="54" x2="78" y2="54" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+          <line x1="122" y1="54" x2="135" y2="54" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+          <line x1="179" y1="54" x2="192" y2="54" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+          <line x1="236" y1="54" x2="249" y2="54" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+          <rect x="50" y="90" width="80" height="25" rx="4" fill="rgba(255,100,50,0.12)" stroke="rgba(255,100,50,0.3)" stroke-width="0.5"/>
+          <text x="90" y="104" fill="#FCA5A5" font-size="6.5" text-anchor="middle">XGBoost Forecasting</text>
+          <rect x="155" y="90" width="90" height="25" rx="4" fill="rgba(100,200,100,0.12)" stroke="rgba(100,200,100,0.3)" stroke-width="0.5"/>
+          <text x="200" y="104" fill="#86EFAC" font-size="6.5" text-anchor="middle">K-Means Segmentation</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">AWS Cloud Data Platform — FMCG Retailer</div>
+        <div class="proj-desc">Migrated 8 on-prem systems to S3/Glue/Redshift. 40+ dbt models, Great Expectations data quality, ML demand forecasting (MAPE &lt;9%) for 2,000 SKUs.</div>
+        <div class="proj-tech">
+          <span>AWS Glue</span><span>Redshift</span><span>dbt</span><span>Great Expectations</span><span>Prophet</span><span>XGBoost</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-visual rl" style="background:linear-gradient(135deg,#0d1117,#1a2744)">
+        <svg class="proj-visual-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+          <text x="150" y="20" fill="white" font-size="9" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600" opacity="0.85">One-Up Puzzle Solver</text>
+          <rect x="60" y="35" width="180" height="70" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+          <rect x="72" y="45" width="26" height="26" rx="3" fill="rgba(232,29,55,0.3)" stroke="rgba(232,29,55,0.6)" stroke-width="1"/>
+          <rect x="104" y="45" width="26" height="26" rx="3" fill="rgba(50,150,255,0.3)" stroke="rgba(50,150,255,0.6)" stroke-width="1"/>
+          <rect x="136" y="45" width="26" height="26" rx="3" fill="rgba(200,150,12,0.3)" stroke="rgba(200,150,12,0.6)" stroke-width="1"/>
+          <rect x="168" y="45" width="26" height="26" rx="3" fill="rgba(80,200,80,0.3)" stroke="rgba(80,200,80,0.6)" stroke-width="1"/>
+          <rect x="200" y="45" width="26" height="26" rx="3" fill="rgba(180,80,200,0.3)" stroke="rgba(180,80,200,0.6)" stroke-width="1"/>
+          <text x="85" y="63" fill="white" font-size="9" text-anchor="middle" font-weight="bold">1</text>
+          <text x="117" y="63" fill="white" font-size="9" text-anchor="middle" font-weight="bold">2</text>
+          <text x="149" y="63" fill="white" font-size="9" text-anchor="middle" font-weight="bold">3</text>
+          <text x="181" y="63" fill="white" font-size="9" text-anchor="middle" font-weight="bold">4</text>
+          <text x="213" y="63" fill="white" font-size="9" text-anchor="middle" font-weight="bold">5</text>
+          <text x="150" y="96" fill="rgba(255,255,255,0.5)" font-size="6.5" text-anchor="middle">Backtracking + Forward Propagation CSP</text>
+          <text x="150" y="120" fill="rgba(255,255,255,0.4)" font-size="6" text-anchor="middle">Solution space –40% · OpenCV grid extraction · 5×5 to 9×9</text>
+        </svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">AI One-Up Puzzle Solver (CSP)</div>
+        <div class="proj-desc">Backtracking + forward propagation with arc consistency and least-constraining-value heuristics. Reduced solution space 40%. OpenCV + OCR for automated grid parsing.</div>
+        <div class="proj-tech">
+          <span>Python</span><span>Backtracking</span><span>CSP</span><span>OpenCV</span><span>OCR</span><span>Matplotlib</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="certs-section" id="certs">
+  <div class="certs-inner">
+    <div class="sec-label" style="color:rgba(255,255,255,0.5)">Credentials</div>
+    <h2 class="sec-title" style="color:white;font-family:'Playfair Display',serif">Certifications & Education</h2>
+    <div class="divider"></div>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">SAP Certified — Business Data Cloud (BDC)</div>
+        <div class="cert-org">SAP</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div class="cert-name">SAP Analytics Cloud (SAC) Certified</div>
+        <div class="cert-org">SAP</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔷</div>
+        <div class="cert-name">Databricks Certified Data Engineer Associate</div>
+        <div class="cert-org">Databricks</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-name">AWS Certified Data Engineer – Associate (DEA-C01)</div>
+        <div class="cert-org">Amazon Web Services</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-name">Generative AI at SAP (openSAP)</div>
+        <div class="cert-org">SAP / openSAP</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">M.S. Data Science — GPA 3.76 · Dean's Scholarship</div>
+        <div class="cert-org">University of New Haven, CT · 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚙️</div>
+        <div class="cert-name">B.Tech Mechanical Engineering — 8.67/10 GPA</div>
+        <div class="cert-org">VIT University, India · 2022 · Best Outgoing Student</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🗃️</div>
+        <div class="cert-name">SAP Datasphere Badge</div>
+        <div class="cert-org">SAP</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+<div class="section">
+  <div class="sec-label">Get In Touch</div>
+  <h2 class="sec-title">Contact & Quick Stats</h2>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-item">
+        <div class="contact-ico">📱</div>
+        <div><div class="contact-lbl">Phone</div><div class="contact-val">+1 (203) 812-9285</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-ico">📧</div>
+        <div><div class="contact-lbl">Email</div><div class="contact-val">kadiyamjitendra@gmail.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-ico">📍</div>
+        <div><div class="contact-lbl">Location</div><div class="contact-val">Bentonville, AR · Open to Remote</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-ico">💼</div>
+        <div><div class="contact-lbl">GitHub</div><div class="contact-val">github.com/kadiyamjitendra</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-ico">🔗</div>
+        <div><div class="contact-lbl">LinkedIn</div><div class="contact-val">linkedin.com/in/jitendra-kadiyam</div></div>
+      </div>
+    </div>
+    <div class="quick-stats">
+      <div style="font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:1rem;text-transform:uppercase;letter-spacing:1px">At a Glance</div>
+      <div class="qstat-row"><span class="qstat-key">Experience</span><span class="qstat-val">4+ Years</span></div>
+      <div class="qstat-row"><span class="qstat-key">SAP Platform</span><span class="qstat-val">Datasphere · SAC · BTP · AI Core</span></div>
+      <div class="qstat-row"><span class="qstat-key">Cloud</span><span class="qstat-val">AWS DEA-C01 Certified</span></div>
+      <div class="qstat-row"><span class="qstat-key">ML/AI Stack</span><span class="qstat-val">BERT · XGBoost · SageMaker · LangChain</span></div>
+      <div class="qstat-row"><span class="qstat-key">Data Processed</span><span class="qstat-val">200K+ events/day · 50K docs/mo</span></div>
+      <div class="qstat-row"><span class="qstat-key">Education</span><span class="qstat-val">M.S. Data Science · GPA 3.76</span></div>
+      <div class="qstat-row"><span class="qstat-key">Fortune 500</span><span class="qstat-val">Manufacturing · FMCG · Logistics</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">KADIYAM<span>.</span></div>
+  <div class="footer-copy">© 2026 Jitendra Prasad Kadiyam · AI Data Engineer</div>
+  <div style="display:flex;gap:1rem">
+    <div style="width:32px;height:32px;border-radius:50%;background:rgba(232,29,55,0.2);border:1px solid rgba(232,29,55,0.4);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.75rem;color:#F87171">GH</div>
+    <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.75rem;color:rgba(255,255,255,0.6)">LI</div>
+  </div>
+</footer>
+
+<script>
+function scroll2(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',function(){
+    document.querySelectorAll('.nav-links a').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
